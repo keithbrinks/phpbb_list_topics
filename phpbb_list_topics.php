@@ -22,7 +22,7 @@ if (is_admin()) {
 /**
  * Main function to call
  */
-function phpbb_list_topics($atts) {
+function phpbb_list_topics($atts = '') {
 	
 	// Define our parameters
 	extract(shortcode_atts(array(
