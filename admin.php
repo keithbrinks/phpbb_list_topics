@@ -8,7 +8,7 @@ add_action('admin_menu','plt_admin_menu');
  */
 function plt_admin_menu() {
 
-	add_options_page('phpBB Latest Topics', 'phpBB Latest Topics', 1, 'phpbblatesttopics', 'plt_admin_page');
+	add_options_page('phpBB List Topics', 'phpBB List Topics', 1, 'phpbblisttopics', 'plt_admin_page');
 
 }
 

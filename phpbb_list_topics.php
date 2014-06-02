@@ -2,11 +2,11 @@
 /**
  * Plugin Name: phpBB List Topics
  * Plugin URI:
- * Description: Lists topics from phpBB
+ * Description: This plugin will allow you to list topics from a phpBB forum.
  * Version: 0.1
  * Author: Keith Brinks
  * Author URI: http://keithbrinks.com
- * License: GPL2
+ * License: GPLv2 or later
  */
 
 // Define our plugin's directory
