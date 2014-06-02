@@ -29,7 +29,15 @@ function phpbb_list_topics($atts = '') {
 		'include' => '',
 		'exclude' => '',
 		'limit' => '5',
-		'title_only' => false
+		'title_before' => '<h2>',
+		'title_after' => '</h2>',
+		
+		'display_date' => true,
+		'date_format' => 'F jS, Y',
+		'date_before' => 'Posted ',
+		
+		'display_user' => true,
+		'user_before' => ' by '
 	), $atts));
 	
 	// Get user defined options for phpBB
@@ -92,11 +100,23 @@ function phpbb_list_topics($atts = '') {
 					
 					echo '<li>
 					
-						<h2><a href="'. $phpbb_url .'viewtopic.php?f='. $topic['forum_id'] .'&t='. $topic['topic_id'] .'">'. $topic['topic_title'] .'</a></h2>
-						<span class="plt_meta">Posted '. date('F jS, Y', $topic['topic_time']) .' by <a href="'. $phpbb_url .'memberlist.php?mode=viewprofile&u='. $topic['topic_poster'] .'">'. $topic['username'] .'</a></span>
+						'. $title_before .'<a href="'. $phpbb_url .'viewtopic.php?f='. $topic['forum_id'] .'&t='. $topic['topic_id'] .'">'. $topic['topic_title'] .'</a>'. $title_after .'
+						<span class="plt_meta">';
+							
+							if ($display_date)
+								echo $date_before;
+								echo date($date_format, $topic['topic_time']);
+							
+							if ($display_user)
+								echo $user_before;
+								echo '<a href="'. $phpbb_url .'memberlist.php?mode=viewprofile&u='. $topic['topic_poster'] .'">'. $topic['username'] .'</a>';
+						
+						echo '</span>
 					
 						<div class="plt_topic">
+						
 							'. $post_text .'
+						
 						</div>
 					
 					</li>';
