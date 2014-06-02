@@ -31,7 +31,7 @@ function plt_options() {
 function plt_admin_page() {
 
 	echo '<div class="wrap">
-		<h2>phpBB Latest Topics Settings</h2>';
+		<h2>phpBB List Topics Settings</h2>';
 		
 		echo '<form method="post" action="options.php">';
 		
