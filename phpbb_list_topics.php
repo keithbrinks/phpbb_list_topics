@@ -86,6 +86,9 @@ function phpbb_list_topics($atts = '') {
 			if (!$title_only) {
 			
 				while ($topic = $result->fetch_array()) {
+				
+					// Search post_text for "{SMILIES_PATH}" and replace with $phpbb_url
+					$post_text = str_replace('{SMILIES_PATH}', $phpbb_url .'images/smilies', $topic['post_text']);
 					
 					echo '<li>
 					
@@ -93,7 +96,7 @@ function phpbb_list_topics($atts = '') {
 						<span class="plt_meta">Posted '. date('F jS, Y', $topic['topic_time']) .' by <a href="'. $phpbb_url .'memberlist.php?mode=viewprofile&u='. $topic['topic_poster'] .'">'. $topic['username'] .'</a></span>
 					
 						<div class="plt_topic">
-							'. $topic['post_text'] .'
+							'. $post_text .'
 						</div>
 					
 					</li>';
